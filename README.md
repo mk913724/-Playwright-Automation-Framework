@@ -1,4 +1,4 @@
-# Star Tech Playwright Framework
+#  Playwright Automation Framework -Star Tech
 
 Playwright automation framework for `https://www.startech.com.bd` using JavaScript, Playwright Test, and the Page Object Model.
 
