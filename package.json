@@ -1,18 +1,21 @@
 {
-  "name": "playwright",
+  "name": "startech-playwright-pom",
   "version": "1.0.0",
-  "description": "Playwright framework for Star Tech using JavaScript and POM",
+  "description": "Beginner-friendly Playwright POM automation framework for Star Tech",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
+    "install:browsers": "playwright install",
     "report": "playwright show-report"
   },
   "keywords": [
     "playwright",
     "automation",
     "javascript",
-    "pom"
+    "pom",
+    "page-object-model",
+    "sqa"
   ],
   "author": "Moniruzzaman",
   "license": "ISC",

@@ -1,8 +1,27 @@
-# Star Tech Playwright Framework
+# Star Tech Playwright Automation Framework
 
-Playwright automation framework for `https://www.startech.com.bd` using JavaScript, Playwright Test, and the Page Object Model.
+This is a Playwright automation framework for [Star Tech](https://www.startech.com.bd), built with JavaScript and the Page Object Model design pattern.
 
-## Structure
+## Features
+
+- Home page navigation
+- Login page validation
+- Product search
+- Product details page validation
+- Add to cart flow
+- Checkout page navigation
+- Reusable page objects
+- Shared test data and helper methods
+- HTML test report
+
+## Tech Stack
+
+- JavaScript
+- Playwright
+- Playwright Test
+- Page Object Model
+
+## Project Structure
 
 ```text
 Playwright/
@@ -23,29 +42,42 @@ Playwright/
 `-- README.md
 ```
 
-## Covered Scenarios
+## Page Object Model
 
-- Signup flow preparation
-- Login page validation
-- Optional authenticated login with environment variables
-- Search product
-- Open product details
-- Add to cart using a real in-stock product
-- Proceed to checkout
+The framework follows the Page Object Model pattern. Page-specific locators and actions are kept inside the `pages/` folder, while test cases are kept inside the `tests/` folder.
 
-## Notes
+This makes the test cases cleaner and easier to maintain. If any locator changes, it can be updated from the related page object file.
 
-- Star Tech signup is kept framework-ready but skipped by default because live registration may require real user verification and should not be spammed from automation.
-- Login test runs fully only if you provide real credentials.
-- Cart flow uses a known in-stock product and selects a required variant before clicking `Buy Now`.
+Example:
 
-## Run
+```javascript
+const homePage = new HomePage(page);
 
-Install browsers if needed:
+await homePage.goto();
+await homePage.searchProduct('laptop');
+```
+
+## Test Scenarios
+
+| Test File | Scenario |
+| --- | --- |
+| `login.spec.js` | Validates login page elements |
+| `search.spec.js` | Searches product and opens product details page |
+| `cart.spec.js` | Adds product to cart and proceeds to checkout |
+
+## Installation
 
 ```bash
-npx playwright install
+npm install
 ```
+
+Install Playwright browsers:
+
+```bash
+npm run install:browsers
+```
+
+## Run Tests
 
 Run all tests:
 
@@ -53,23 +85,37 @@ Run all tests:
 npm test
 ```
 
-Run in headed mode:
+Run tests in headed mode:
 
 ```bash
 npm run test:headed
 ```
 
-Open Playwright report:
+Run tests with Playwright UI mode:
+
+```bash
+npm run test:ui
+```
+
+Open the HTML report:
 
 ```bash
 npm run report
 ```
 
-## Optional Environment Variables
+## Configuration
 
-Set these if you want to run the authenticated login test:
+The main Playwright configuration is available in `playwright.config.js`.
 
-```powershell
-$env:STARTECH_USERNAME="your-email-or-phone"
-$env:STARTECH_PASSWORD="your-password"
-```
+Current configuration includes:
+
+- Chromium browser
+- HTML report
+- Screenshot on failure
+- Video on failure
+- Trace on first retry
+- Base URL: `https://www.startech.com.bd`
+
+## Author
+
+Moniruzzaman

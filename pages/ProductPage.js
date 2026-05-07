@@ -13,11 +13,7 @@ class ProductPage {
   }
 
   async gotoProduct(pathOrUrl) {
-    if (pathOrUrl.startsWith('http')) {
-      await this.page.goto(pathOrUrl);
-    } else {
-      await this.page.goto(pathOrUrl);
-    }
+    await this.page.goto(pathOrUrl);
     await this.page.waitForLoadState('domcontentloaded');
     await expect(this.productTitle).toBeVisible();
   }
