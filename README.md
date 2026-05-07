@@ -35,14 +35,6 @@ Playwright/
 `-- README.md
 ```
 
-## Test Files
-
-| File | What it tests |
-| --- | --- |
-| `login.spec.js` | Login page validation |
-| `search.spec.js` | Product search and product details page |
-| `cart.spec.js` | Add to cart and checkout navigation |
-
 ## Install
 
 ```bash
