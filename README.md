@@ -1,25 +1,18 @@
-# Star Tech Playwright Automation Framework
+# Playwright Automation Framework - Star Tech
 
-This is a Playwright automation framework for [Star Tech](https://www.startech.com.bd), built with JavaScript and the Page Object Model design pattern.
+Simple Playwright automation project for [Star Tech](https://www.startech.com.bd).
 
-## Features
+This project uses JavaScript, Playwright Test, and the Page Object Model.
 
-- Home page navigation
+## Covered Scenarios
+
+- Signup flow preparation
 - Login page validation
-- Product search
-- Product details page validation
-- Add to cart flow
-- Checkout page navigation
-- Reusable page objects
-- Shared test data and helper methods
-- HTML test report
-
-## Tech Stack
-
-- JavaScript
-- Playwright
-- Playwright Test
-- Page Object Model
+- Optional authenticated login with environment variables
+- Search product
+- Open product details
+- Add to cart using a real in-stock product
+- Proceed to checkout
 
 ## Project Structure
 
@@ -42,36 +35,19 @@ Playwright/
 `-- README.md
 ```
 
-## Page Object Model
+## Test Files
 
-The framework follows the Page Object Model pattern. Page-specific locators and actions are kept inside the `pages/` folder, while test cases are kept inside the `tests/` folder.
-
-This makes the test cases cleaner and easier to maintain. If any locator changes, it can be updated from the related page object file.
-
-Example:
-
-```javascript
-const homePage = new HomePage(page);
-
-await homePage.goto();
-await homePage.searchProduct('laptop');
-```
-
-## Test Scenarios
-
-| Test File | Scenario |
+| File | What it tests |
 | --- | --- |
-| `login.spec.js` | Validates login page elements |
-| `search.spec.js` | Searches product and opens product details page |
-| `cart.spec.js` | Adds product to cart and proceeds to checkout |
+| `login.spec.js` | Login page validation |
+| `search.spec.js` | Product search and product details page |
+| `cart.spec.js` | Add to cart and checkout navigation |
 
-## Installation
+## Install
 
 ```bash
 npm install
 ```
-
-Install Playwright browsers:
 
 ```bash
 npm run install:browsers
@@ -85,36 +61,29 @@ Run all tests:
 npm test
 ```
 
-Run tests in headed mode:
+Run headed mode:
 
 ```bash
 npm run test:headed
 ```
 
-Run tests with Playwright UI mode:
+Run UI mode:
 
 ```bash
 npm run test:ui
 ```
 
-Open the HTML report:
+Open report:
 
 ```bash
 npm run report
 ```
 
-## Configuration
+## Notes
 
-The main Playwright configuration is available in `playwright.config.js`.
-
-Current configuration includes:
-
-- Chromium browser
-- HTML report
-- Screenshot on failure
-- Video on failure
-- Trace on first retry
-- Base URL: `https://www.startech.com.bd`
+- Base URL is set in `playwright.config.js`.
+- Test data is stored in `utils/testData.js`.
+- Page actions and locators are stored in the `pages/` folder.
 
 ## Author
 
