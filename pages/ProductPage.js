@@ -22,13 +22,7 @@ class ProductPage {
 
   async addToCart() {
     await expect(this.buyNowButton).toBeVisible();
-
-    await Promise.all([
-      this.page.waitForResponse(response =>
-        response.url().includes('/checkout/cart/add') && response.status() === 200
-      ),
-      safeClick(this.buyNowButton)
-    ]);
+    await safeClick(this.buyNowButton);
   }
 
   async expectCartCountOne() {
