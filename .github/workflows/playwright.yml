@@ -15,8 +15,8 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
+    # এটি গিটহাবের ক্যাশ করা অফিশিয়াল রানার ব্যবহার করবে, আলাদা কোনো নেটওয়ার্ক ডাউনলোড ছাড়াই
+    - name: Install Playwright Browsers
+      uses: microsoft/playwright-github-action@v1
     - name: Run Playwright tests
       run: npx playwright test
-      env:
-      
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
