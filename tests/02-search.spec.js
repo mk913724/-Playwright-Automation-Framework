@@ -2,8 +2,8 @@ const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../pages/HomePage');
 const { products } = require('../utils/testData');
 
-test.describe('Star Tech Search', () => {
-  test('search input is visible and product cards are available', async ({ page }) => {
+test.describe('02. Product Search', () => {
+  test('searches for products', async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.open();
@@ -19,7 +19,7 @@ test.describe('Star Tech Search', () => {
     await homePage.open();
     await homePage.openFirstProduct();
 
-    await expect(page).not.toHaveURL('https://www.startech.com.bd/');
     await expect(page.locator('h1')).toBeVisible();
+    await expect(page).not.toHaveURL('https://www.startech.com.bd/');
   });
 });

@@ -1,8 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/LoginPage');
 
-test.describe('Star Tech Authentication', () => {
-  test('loads login page and validates controls', async ({ page }) => {
+test.describe('01. Login Page', () => {
+  test('shows the login form', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.open();
