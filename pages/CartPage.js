@@ -1,18 +1,11 @@
 const { expect } = require('@playwright/test');
-
 class CartPage {
   constructor(page) {
     this.page = page;
-    this.cartDrawer = page.locator('#m-cart');
-    this.checkoutUrlPattern = /checkout/;
   }
 
-  async assertProductInMiniCart(productName) {
-    await expect(this.cartDrawer).toContainText(productName, { ignoreCase: true });
-  }
-
-  async assertCheckoutPageOpened() {
-    await expect(this.page).toHaveURL(this.checkoutUrlPattern);
+  async expectCheckoutPage() {
+    await expect(this.page).toHaveURL(/checkout/);
   }
 }
 

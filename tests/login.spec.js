@@ -5,8 +5,9 @@ test.describe('Star Tech Authentication', () => {
   test('loads login page and validates controls', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.goto();
+    await loginPage.open();
+
     await expect(page).toHaveURL(/account\/login/);
-    await loginPage.assertLoginPageLoaded();
+    await loginPage.expectLoginFormVisible();
   });
 });
