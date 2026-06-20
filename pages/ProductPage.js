@@ -30,18 +30,18 @@ class ProductPage {
 
     for (let attempt = 1; attempt <= 3; attempt++) {
       await safeClick(this.buyNowButton);
+      await this.page.waitForTimeout(1500);
 
-      try {
-        await this.expectCartCountOne(5000);
+      if (await this.cartCount() === '1') {
         return;
-      } catch (error) {
-        if (attempt === 3) {
-          throw error;
-        }
-
-        await this.page.waitForTimeout(1000);
       }
     }
+
+    await this.expectCartCountOne();
+  }
+
+  async cartCount() {
+    return (await this.cartCounter.textContent()).trim();
   }
 
   async expectCartCountOne(timeout = 15000) {
