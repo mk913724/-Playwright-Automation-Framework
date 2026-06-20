@@ -16,8 +16,7 @@ test.describe('02. Product Search', () => {
   test('opens a product details page', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.open();
-    await homePage.openFirstProduct();
+    await homePage.searchAndOpenFirstProduct(products.searchKeyword);
 
     await expect(page.locator('h1')).toBeVisible();
     await expect(page).not.toHaveURL('https://www.startech.com.bd/');

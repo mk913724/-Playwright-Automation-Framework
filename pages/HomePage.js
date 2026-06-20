@@ -25,6 +25,12 @@ class HomePage {
     await expect(this.productCards.first()).toBeVisible();
     await safeClick(this.productCards.first().locator('a').first());
   }
+
+  async searchAndOpenFirstProduct(keyword) {
+    await this.open();
+    await this.search(keyword);
+    await this.openFirstProduct();
+  }
 }
 
 module.exports = { HomePage };
