@@ -10,8 +10,7 @@ class HomePage {
   }
 
   async open() {
-    await this.page.goto('/');
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
     await dismissPopupIfPresent(this.page);
   }
 

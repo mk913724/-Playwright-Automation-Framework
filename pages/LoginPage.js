@@ -10,8 +10,7 @@ class LoginPage {
   }
 
   async open() {
-    await this.page.goto('/account/login');
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.goto('/account/login', { waitUntil: 'domcontentloaded' });
   }
 
   async expectLoginFormVisible() {

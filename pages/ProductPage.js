@@ -12,7 +12,7 @@ class ProductPage {
   }
 
   async open(productUrl) {
-    await this.page.goto(productUrl, { waitUntil: 'load' });
+    await this.page.goto(productUrl, { waitUntil: 'domcontentloaded' });
     await expect(this.productTitle).toBeVisible();
   }
 
@@ -48,12 +48,11 @@ class ProductPage {
     const checkoutUrl = await checkoutLocator.getAttribute('href');
 
     if (checkoutUrl) {
-      await this.page.goto(checkoutUrl);
+      await this.page.goto(checkoutUrl, { waitUntil: 'domcontentloaded' });
     } else {
       await safeClick(checkoutLocator);
+      await this.page.waitForLoadState('domcontentloaded');
     }
-
-    await this.page.waitForLoadState('domcontentloaded');
   }
 }
 
