@@ -16,7 +16,14 @@ module.exports = defineConfig({
   ],
   use: {
     baseURL: 'https://www.startech.com.bd',
-    headless: true,
+    
+    
+    headless: process.env.CI ? true : false,
+    
+    launchOptions: {
+      slowMo: process.env.CI ? 0 : 1500,
+    },
+    
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
